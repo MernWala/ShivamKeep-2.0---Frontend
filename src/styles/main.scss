@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+// font-family: 'Alkatra', cursive;
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+// font-family: 'Ubuntu', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+// font-family: 'Nunito', sans-serif;
+
+.heading-text {
+    font-family: 'Alkatra', cursive;
+    font-size: 2rem;
+}
+
+.cardHeading-text {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.3rem;
+}
+
+.cardBody-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+}
+
+i{
+    cursor: pointer;
+}
+
+.fa-pen-to-square{
+    color: var(--bs-success)
+}   
+
+.fa-trash{
+    color: var(--bs-danger);
+}
