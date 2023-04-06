@@ -1,10 +1,16 @@
 import React from "react";
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import ModeContext from "../context/utility/ModeContext";
 
 const Navbar = (props) => {
+
+    const context = useContext(ModeContext);
+    const { theam, toggleTheam } = context;
+
     return (
         <>
-            <nav className={`navbar navbar-expand-lg px-4 navbar-${props.currentTheam === 'light' ? 'light' : 'dark'} bg-${props.currentTheam === 'light' ? 'light' : 'dark'}`} >
+            <nav className={`navbar navbar-shadow-${theam === 'dark' ? 'dark' : 'light' } navbar-expand-lg px-4 navbar-${theam === 'light' ? 'light' : 'dark'} bg-${theam === 'light' ? 'light' : 'dark'}`} >
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">Shivam Keep+</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,10 +29,10 @@ const Navbar = (props) => {
                         <form>
                             <div className="form-check form-switch">
                                 <input className="form-check-input" type="checkbox" role="switch" style={{ 'cursor': 'pointer' }}
-                                    onClick={() => props.changeTheam()} checked={props.currentTheam === 'light' ? false : true} onChange={e => {}} />
+                                    onClick={() => toggleTheam()} checked={theam === 'light' ? false : true} onChange={e => { }} />
 
-                                <label className={`form-check-label text-${props.currentTheam === 'light' ? 'dark' : 'light'}`} >
-                                    {props.currentTheam === 'light' ? 'Light' : 'Dark'} Mode
+                                <label className={`form-check-label text-${theam === 'light' ? 'dark' : 'light'}`} >
+                                    {theam === 'light' ? 'Light' : 'Dark'} Mode
                                 </label>
                             </div>
                         </form>

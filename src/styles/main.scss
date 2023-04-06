@@ -13,6 +13,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 // font-family: 'Merriweather', serif;
 
+body{
+    background-color: var(--bs-dark);
+    color: #fff;
+}
+
 .heading-text {
     font-family: 'Alkatra', cursive;
     font-size: 2rem;
@@ -48,4 +53,16 @@ i {
 
 .fa-trash {
     color: var(--bs-danger);
+}
+
+@mixin shadow-light($var){
+    box-shadow: 0rem 1px 10px $var;
+}
+
+.navbar-shadow-light{
+    @include shadow-light(var(--bs-dark));
+}
+
+.navbar-shadow-dark{
+    @include shadow-light(var(--bs-light));
 }
