@@ -3,7 +3,11 @@ import "../styles/main.scss"
 
 const NoteItem = (props) => {
 
-    const { title, description } = props.note;
+    const { title, description, tags, date } = props.note;
+    
+    const capitilize = (string) => {
+        return string.charAt(0).toUpperCase() + string.substring(1);
+    }
 
     return (
         <>
@@ -26,6 +30,15 @@ const NoteItem = (props) => {
                     <hr className='m-0 p-0' />
                     <div>
                         <p className="card-text p-2 cardBody-text">{description}</p>
+                    </div>
+                    <div>
+                        <div>
+                            <hr className="m-0 p-0"/>
+                            <p className='mb-0 mt-2 px-3 card-tag-text'>{capitilize(tags)}</p>
+                        </div>
+                        <div>
+                            <p className='mb-2 px-3 card-date-text float-end'>{new Date(date).toGMTString()}</p>
+                        </div>
                     </div>
                 </div>
             </div>

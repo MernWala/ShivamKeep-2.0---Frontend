@@ -7,6 +7,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 // font-family: 'Nunito', sans-serif;
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+// font-family: 'Dancing Script', cursive;
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+// font-family: 'Merriweather', serif;
+
 .heading-text {
     font-family: 'Alkatra', cursive;
     font-size: 2rem;
@@ -22,14 +28,24 @@
     font-size: 1rem;
 }
 
-i{
+.card-tag-text{
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+}
+
+.card-date-text{
+    font-family: 'Merriweather', serif;
+    font-size: .7rem;
+}
+
+i {
     cursor: pointer;
 }
 
-.fa-pen-to-square{
+.fa-pen-to-square {
     color: var(--bs-success)
-}   
+}
 
-.fa-trash{
+.fa-trash {
     color: var(--bs-danger);
 }
