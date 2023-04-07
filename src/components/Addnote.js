@@ -16,6 +16,7 @@ const Addnote = () => {
     const handleClick = (e) => {
         e.preventDefault();
         addNote(note.title, note.description, note.tags);
+        setNote({ title: "", description: "", tags: "" })
     }
 
     const onChange = (e) => {
@@ -29,17 +30,17 @@ const Addnote = () => {
                 <div className='mb-3 d-flex justify-content-between'>
                     <div className='col-6'>
                         <label htmlFor='title' className='form-lable form-label-text'>Title</label>
-                        <input type='text' className={`form-control bg-${theam} bg-gradient`} style={{ borderColor: theam, color: theam === 'dark' ? '#fff' : 'var(--bs-dark)' }} id='title' name='title' onChange={onChange} />
+                        <input type='text' className={`form-control bg-${theam} bg-gradient`} style={{ borderColor: theam, color: theam === 'dark' ? '#fff' : 'var(--bs-dark)' }} id='title' name='title' onChange={onChange} minLength={5} required value={note.title} />
                     </div>
                     <div className='col-6' style={{ width: 'calc(50% - 1rem)' }} >
                         <label htmlFor='tags' className='form-lable'>Tag</label>
-                        <input type='text' className={`form-control bg-${theam} bg-gradient`} style={{ borderColor: theam, color: theam === 'dark' ? '#fff' : 'var(--bs-dark)' }} id='tags' name='tags' onChange={onChange} />
+                        <input type='text' className={`form-control bg-${theam} bg-gradient`} style={{ borderColor: theam, color: theam === 'dark' ? '#fff' : 'var(--bs-dark)' }} id='tags' name='tags' onChange={onChange} value={note.tags} />
                     </div>
                 </div>
 
                 <div className='mb-3'>
                     <label htmlFor='description' className='form-lable'>Description</label>
-                    <input type='text' className={`form-control bg-${theam} bg-gradient`} style={{ borderColor: theam, color: theam === 'dark' ? '#fff' : 'var(--bs-dark)' }} id='description' name='description' onChange={onChange} />
+                    <input type='text' className={`form-control bg-${theam} bg-gradient`} style={{ borderColor: theam, color: theam === 'dark' ? '#fff' : 'var(--bs-dark)' }} id='description' name='description' onChange={onChange} minLength={5} required value={note.description} />
                 </div>
 
                 <button type='submit' className={`btn btn-${theam === 'dark' ? 'secondary' : 'primary'}`} onClick={handleClick}>Add Note</button>
