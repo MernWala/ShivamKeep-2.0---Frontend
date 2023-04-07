@@ -11,11 +11,11 @@ const Addnote = () => {
     const modeContext = useContext(ModeContext);
     const { theam } = modeContext;
 
-    const [note, setNote] = useState({ title: "", description: "", tag: "" })
+    const [note, setNote] = useState({ title: "", description: "", tags: "" })
 
     const handleClick = (e) => {
         e.preventDefault();
-        addNote(note.title, note.description, note.tag);
+        addNote(note.title, note.description, note.tags);
     }
 
     const onChange = (e) => {
@@ -32,8 +32,8 @@ const Addnote = () => {
                         <input type='text' className={`form-control bg-${theam} bg-gradient`} style={{ borderColor: theam, color: theam === 'dark' ? '#fff' : 'var(--bs-dark)' }} id='title' name='title' onChange={onChange} />
                     </div>
                     <div className='col-6' style={{ width: 'calc(50% - 1rem)' }} >
-                        <label htmlFor='tag' className='form-lable'>Tag</label>
-                        <input type='text' className={`form-control bg-${theam} bg-gradient`} style={{ borderColor: theam, color: theam === 'dark' ? '#fff' : 'var(--bs-dark)' }} id='tag' name='tag' onChange={onChange} />
+                        <label htmlFor='tags' className='form-lable'>Tag</label>
+                        <input type='text' className={`form-control bg-${theam} bg-gradient`} style={{ borderColor: theam, color: theam === 'dark' ? '#fff' : 'var(--bs-dark)' }} id='tags' name='tags' onChange={onChange} />
                     </div>
                 </div>
 

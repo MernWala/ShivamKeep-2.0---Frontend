@@ -2,16 +2,24 @@ import React from 'react'
 import "../styles/main.scss"
 import ModeContext from '../context/utility/ModeContext';
 import { useContext } from 'react';
+import noteContext from '../context/notes/noteContext';
 
 const NoteItem = (props) => {
 
-    const { title, description, tags, date } = props.note;
-    const context = useContext(ModeContext);
-    const { theam } = context;
+    const { title, description, tags, date, _id } = props.note;
+
+    const mCon = useContext(ModeContext);
+    const { theam } = mCon;
+
+    const nCon = useContext(noteContext);
+    const { deleteNote } = nCon;
 
 
     const capitilize = (string) => {
-        return string.charAt(0).toUpperCase() + string.substring(1);
+        if (!string)
+            return "";
+        else
+            return string.charAt(0).toUpperCase() + string.substring(1);
     }
 
     return (
@@ -28,8 +36,8 @@ const NoteItem = (props) => {
                             <h5 className="m-0 cardHeading-text">{title}</h5>
                         </div>
                         <div className={`p-0 m-0`} style={{ width: 'fit-content' }}>
-                            <i className="fa-sharp mx-2 fa-solid fa-trash"></i>
-                            <i className="fa-solid mx-2 fa-pen-to-square"></i>
+                            <i onClick={() => deleteNote(_id)} className="fa-sharp mx-2 fa-solid fa-trash"></i>
+                            <i onClick={() => props.updateNote(props.note)} className="fa-solid mx-2 fa-pen-to-square"></i>
                         </div>
                     </div>
                     <hr className='m-0 p-0' />
