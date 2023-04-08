@@ -2,8 +2,8 @@ import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
+  
   const host = "http://localhost:5000"
-  // const notesInitial = []
   const [notes, setNotes] = useState([])
 
   // Get all Notes
@@ -12,7 +12,7 @@ const NoteState = (props) => {
     const response = await fetch(`${host}/api/notes/fetchallnotes`, {
       method: 'GET',
       headers: {
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQyOTQ0ZjY5ZDIyZmM4ZTViYjM5OGY0In0sImlhdCI6MTY4MDQyNjI2MH0.qv7sdrhPriEOZ1-Urd2wy-bruIfszF2y9o_o30snj6Q"
+        "auth-token": localStorage.getItem('tocken')
       }
     });
     const json = await response.json()
@@ -26,7 +26,7 @@ const NoteState = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQyOTQ0ZjY5ZDIyZmM4ZTViYjM5OGY0In0sImlhdCI6MTY4MDQyNjI2MH0.qv7sdrhPriEOZ1-Urd2wy-bruIfszF2y9o_o30snj6Q"
+        "auth-token": localStorage.getItem('tocken')
       },
       body: JSON.stringify({ title, description, tags })
     });
@@ -42,7 +42,7 @@ const NoteState = (props) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQyOTQ0ZjY5ZDIyZmM4ZTViYjM5OGY0In0sImlhdCI6MTY4MDQyNjI2MH0.qv7sdrhPriEOZ1-Urd2wy-bruIfszF2y9o_o30snj6Q"
+        "auth-token": localStorage.getItem('tocken')
       }
     });
     const json = await response.json();
@@ -59,7 +59,7 @@ const NoteState = (props) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQyOTQ0ZjY5ZDIyZmM4ZTViYjM5OGY0In0sImlhdCI6MTY4MDQyNjI2MH0.qv7sdrhPriEOZ1-Urd2wy-bruIfszF2y9o_o30snj6Q"
+        "auth-token": localStorage.getItem('tocken')
       },
       body: JSON.stringify({ title, description, tags })
     });

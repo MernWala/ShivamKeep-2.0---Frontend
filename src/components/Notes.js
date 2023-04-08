@@ -2,14 +2,24 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import noteContext from "../context/notes/noteContext"
 import Noteitem from './NoteItem';
 import ModeContext from '../context/utility/ModeContext';
+import { useNavigate } from 'react-router-dom';
 
 const Notes = (props) => {
     const nCon = useContext(noteContext);
     const { notes, getNotes, editNote } = nCon;
+
+    const navigate = useNavigate();
+
     useEffect(() => {
-        getNotes()
+        if (localStorage.getItem('tocken')) {
+            getNotes();
+        }
+        else {
+            navigate("/login")
+        }
         // eslint-disable-next-line
     }, [])
+
     const ref = useRef(null)
     const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etags: "" })
 
@@ -71,9 +81,13 @@ const Notes = (props) => {
             <div className='container'>
                 <div className="row my-3">
                     <h2>You Notes</h2>
-                    {notes.map((note) => {
-                        return <Noteitem key={note._id} updateNote={updateNote} note={note} alert={props.alert} />
-                    })}
+                    {notes.length === 0 ?
+                        <div className='container'>No notes avilable</div>
+                        :
+                        notes.map((note) => {
+                            return <Noteitem key={note._id} updateNote={updateNote} note={note} alert={props.alert} />
+                        })
+                    }
                 </div>
             </div>
         </>

@@ -37,8 +37,8 @@ const Signup = (props) => {
     console.log(json);
     
     if (json.authTocken) {
-      localStorage.setItem('tocken', json.authTocken);
-      navigate("/");
+      props.alert("Account created sucessfully, Please Login with your credential", "success")
+      navigate("/login");
     } else {
       props.alert("User with this mail alredy exists !", "warning")
     }
