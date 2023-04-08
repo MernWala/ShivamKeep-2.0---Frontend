@@ -13,6 +13,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 // font-family: 'Merriweather', serif;
 
+*{
+    transition: color .1s ease-in-out;
+    transition: background-color .2s ease-in-out;
+    transition: background .2s ease-in-out;
+}
+
 body{
     background-color: var(--bs-dark);
     color: #fff;
@@ -59,10 +65,22 @@ i {
     box-shadow: 0rem 1px 10px $var;
 }
 
+@mixin shadow-light-min($var){
+    box-shadow: 0rem 0px 3px $var;
+}
+
 .navbar-shadow-light{
     @include shadow-light(var(--bs-dark));
 }
 
 .navbar-shadow-dark{
     @include shadow-light(var(--bs-light));
+}
+
+.theam-shadow-dark{
+    @include shadow-light-min(var(--bs-light));
+}
+
+.theam-shadow-light{
+    @include shadow-light-min(var(--bs-dark));
 }

@@ -11,7 +11,6 @@ const Notes = () => {
         // eslint-disable-next-line
     }, [])
     const ref = useRef(null)
-    const refClose = useRef(null)
     const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etags: "" })
 
     const updateNote = (currentNote) => {

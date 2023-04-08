@@ -25,17 +25,6 @@ const Navbar = (props) => {
                                 <NavLink className="nav-link" to="/about">About</NavLink>
                             </li>
                         </ul>
-
-                        <form>
-                            <div className="form-check form-switch">
-                                <input className="form-check-input" type="checkbox" role="switch" style={{ 'cursor': 'pointer' }}
-                                    onClick={() => toggleTheam()} checked={theam === 'light' ? false : true} onChange={e => { }} />
-
-                                <label className={`form-check-label text-${theam === 'light' ? 'dark' : 'light'}`} >
-                                    {theam === 'light' ? 'Light' : 'Dark'} Mode
-                                </label>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </nav>
