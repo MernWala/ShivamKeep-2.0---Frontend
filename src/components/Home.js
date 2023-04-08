@@ -5,8 +5,8 @@ import Addnote from "./Addnote";
 const Home = (props) => {
   return (
     <>
-      <Addnote />
-      <Notes />
+      <Addnote alert={props.alert} />
+      <Notes alert={props.alert} />
     </>
   )
 }

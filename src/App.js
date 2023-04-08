@@ -21,7 +21,7 @@ function App() {
     })
     setTimeout(() => {
       setAlerts(null);
-    }, 2000)
+    }, 5000)
   }
 
   return (

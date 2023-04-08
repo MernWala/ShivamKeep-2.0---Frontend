@@ -3,7 +3,7 @@ import noteContext from "../context/notes/noteContext"
 import Noteitem from './NoteItem';
 import ModeContext from '../context/utility/ModeContext';
 
-const Notes = () => {
+const Notes = (props) => {
     const nCon = useContext(noteContext);
     const { notes, getNotes, editNote } = nCon;
     useEffect(() => {
@@ -16,6 +16,7 @@ const Notes = () => {
     const updateNote = (currentNote) => {
         ref.current.click();
         setNote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etags: currentNote.tags })
+        props.alert("Noted edded done", "warning");
     }
 
     const handleClick = (e) => {
@@ -71,7 +72,7 @@ const Notes = () => {
                 <div className="row my-3">
                     <h2>You Notes</h2>
                     {notes.map((note) => {
-                        return <Noteitem key={note._id} updateNote={updateNote} note={note} />
+                        return <Noteitem key={note._id} updateNote={updateNote} note={note} alert={props.alert} />
                     })}
                 </div>
             </div>

@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import noteContext from '../context/notes/noteContext';
 
 const NoteItem = (props) => {
-
     const { title, description, tags, date, _id } = props.note;
 
     const mCon = useContext(ModeContext);
@@ -36,7 +35,7 @@ const NoteItem = (props) => {
                             <h5 className="m-0 cardHeading-text">{title}</h5>
                         </div>
                         <div className={`p-0 m-0`} style={{ width: 'fit-content' }}>
-                            <i onClick={() => deleteNote(_id)} className="fa-sharp mx-2 fa-solid fa-trash"></i>
+                            <i onClick={() => deleteNote(_id) && (props.alert("Deleted note done", "danger"))} className="fa-sharp mx-2 fa-solid fa-trash"></i>
                             <i onClick={() => props.updateNote(props.note)} className="fa-solid mx-2 fa-pen-to-square"></i>
                         </div>
                     </div>

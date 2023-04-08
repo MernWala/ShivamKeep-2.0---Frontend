@@ -45,10 +45,9 @@ const NoteState = (props) => {
         "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQyOTQ0ZjY5ZDIyZmM4ZTViYjM5OGY0In0sImlhdCI6MTY4MDQyNjI2MH0.qv7sdrhPriEOZ1-Urd2wy-bruIfszF2y9o_o30snj6Q"
       }
     });
-    const json = response.json();
+    const json = await response.json();
     console.log(json)
 
-    console.log("Deleting the note with id" + id);
     const newNotes = notes.filter((note) => { return note._id !== id })
     setNotes(newNotes)
   }

@@ -3,7 +3,7 @@ import noteContext from '../context/notes/noteContext';
 import "../styles/main.scss"
 import ModeContext from '../context/utility/ModeContext';
 
-const Addnote = () => {
+const Addnote = (props) => {
 
     const context = useContext(noteContext)
     const { addNote } = context;
@@ -16,6 +16,7 @@ const Addnote = () => {
     const handleClick = (e) => {
         e.preventDefault();
         addNote(note.title, note.description, note.tags);
+        props.alert("Sucessfully added new note", "success");
         setNote({ title: "", description: "", tags: "" })
     }
 
