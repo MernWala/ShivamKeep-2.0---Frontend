@@ -8,6 +8,8 @@ import NoteState from './context/notes/NoteState';
 import Alert from './components/Alerts';
 import ModeState from './context/utility/ModeState';
 import TheamButton from './components/TheamButton';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 function App() {
 
@@ -32,6 +34,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home alert={showAlert} />} />
             <Route path="/about" element={<About alert={showAlert} />} />
+            <Route path="/login" element={<Login alert={showAlert} />} />
+            <Route path="/signup" element={<Signup alert={showAlert} />} />
           </Routes>
         </BrowserRouter>
       </NoteState>
