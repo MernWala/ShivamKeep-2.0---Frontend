@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
+import NoteContext from '../context/notes/noteContext'
 
 const Login = (props) => {
 
   let navigate = useNavigate();
 
+  const { backendHost } = useContext(NoteContext)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(e);
-    const response = await fetch(`http://localhost:5000/api/auth/login`, {
+    const response = await fetch(`${backendHost}/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -24,7 +27,7 @@ const Login = (props) => {
     if (json.authTocken) {
       localStorage.setItem('tocken', json.authTocken);
       navigate("/");
-    }else{
+    } else {
       props.alert("Invalid Credential", "danger");
       localStorage.removeItem('tocken');
     }

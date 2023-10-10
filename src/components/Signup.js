@@ -1,28 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
+import noteContext from '../context/notes/noteContext';
 
 const Signup = (props) => {
 
   let navigate = useNavigate();
   const [data, setData] = useState({ s_name: '', s_email: '', s_password: '', s_password2: '' });
-  
+
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value })
   }
 
+  const { backendHost } = useContext(noteContext)
+
   const preCheck = (e) => {
     e.preventDefault();
-    if(data.s_password === data.s_password2){
+    if (data.s_password === data.s_password2) {
       handleSubmit();
       navigate("/");
       props.alert("Account created sucessfully", "success");
-    }else{
+    } else {
       props.alert("Password mismatch, Please try again !", "warning");
     }
   }
 
   const handleSubmit = async (e) => {
-    const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
+    const response = await fetch(`${backendHost}/api/auth/createuser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -35,7 +38,7 @@ const Signup = (props) => {
     });
     const json = await response.json()
     console.log(json);
-    
+
     if (json.authTocken) {
       props.alert("Account created sucessfully, Please Login with your credential", "success")
       navigate("/login");
